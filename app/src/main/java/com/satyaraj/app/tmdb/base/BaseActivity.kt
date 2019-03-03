@@ -2,7 +2,7 @@ package com.satyaraj.app.tmdb.base
 
 import androidx.appcompat.app.AppCompatActivity
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val mFragmentManager = supportFragmentManager
@@ -12,5 +12,4 @@ class BaseActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }

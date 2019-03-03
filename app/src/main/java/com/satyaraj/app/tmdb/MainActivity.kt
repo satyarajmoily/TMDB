@@ -1,12 +1,23 @@
 package com.satyaraj.app.tmdb
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.satyaraj.app.tmdb.base.BaseActivity
+import com.satyaraj.app.tmdb.custom.FragmentTransactionManager
+import com.satyaraj.app.tmdb.fragment.movielist.MovieFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity :  BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            switchFragment(MovieFragment.getNewInstance(), false)
+        }
+    }
+
+    private fun switchFragment(fragment: Fragment, shouldPop: Boolean) {
+        FragmentTransactionManager.addFragment(supportFragmentManager, fragment, shouldPop, R.id.container)
     }
 }
