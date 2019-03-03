@@ -5,27 +5,27 @@ import com.google.gson.annotations.SerializedName
 
 class Movie {
 
-    @SerializedName("")
+    @SerializedName("title")
     @Expose
     var movieTitle: String? = null
 
-    @SerializedName("")
+    @SerializedName("poster_path")
     @Expose
     var url : String? = null
 
-    @SerializedName("")
+    @SerializedName("overview")
     @Expose
     var movieDesc : String? = null
 
-    @SerializedName("")
+    @SerializedName("vote_average")
     @Expose
     var movieRating : String? = null
 
-    @SerializedName("")
+    @SerializedName("release_date")
     @Expose
     var movieDate : String? = null
 
-    @SerializedName("")
+    @SerializedName("original_language")
     @Expose
     var movieLang : String? = null
 }

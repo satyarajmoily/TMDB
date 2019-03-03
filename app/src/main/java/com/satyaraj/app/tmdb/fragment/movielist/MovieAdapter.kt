@@ -18,7 +18,6 @@ class MovieAdapter(movieFragment: MovieFragment) : RecyclerView.Adapter<Recycler
     private val mMoviesList = ArrayList<Movie>(0)
 
     private val mClickListener: ClickListener
-    private val mMovieFragment: MovieFragment? = null
     private val mContext: Context
 
     init {

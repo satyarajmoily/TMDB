@@ -1,6 +1,6 @@
 package com.satyaraj.app.tmdb.application.di
 
-import com.satyaraj.app.tmdb.application.ApiCall
+import com.satyaraj.app.tmdb.ApiCall
 import dagger.Component
 
 @AppScope

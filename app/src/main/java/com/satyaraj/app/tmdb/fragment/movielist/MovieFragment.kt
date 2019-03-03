@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.satyaraj.app.tmdb.MainActivity
 import com.satyaraj.app.tmdb.R
+import com.satyaraj.app.tmdb.application.MoviesApplication
 import com.satyaraj.app.tmdb.base.BaseFragment
 import com.satyaraj.app.tmdb.pojo.Movie
+import io.reactivex.disposables.CompositeDisposable
 
-class MovieFragment : BaseFragment<MainActivity>(), ClickListener {
+class MovieFragment : BaseFragment<MainActivity>(), ClickListener, MovieContract.View {
 
-    private var mRecyclerView: RecyclerView? = null
-    private var mMovieAdapter: MovieAdapter? = null
+    private var mMoviePresenter : MoviePresenter? = null
+    private var mMovieAdapter : MovieAdapter? = null
 
     companion object {
         fun getNewInstance(): MovieFragment {
@@ -29,18 +32,27 @@ class MovieFragment : BaseFragment<MainActivity>(), ClickListener {
         super.onViewCreated(view, savedInstanceState)
         attachParent(activity as MainActivity)
         initViews(view)
+        mMoviePresenter?.getMovies()
     }
 
     private fun initViews(view: View) {
-        mRecyclerView = view.findViewById(R.id.recycler_view)
+        val mRecyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
+        val layoutManager = LinearLayoutManager(context)
+        mRecyclerView.layoutManager = layoutManager
+
         mMovieAdapter = MovieAdapter(this)
+        mRecyclerView.adapter = mMovieAdapter
+
+        val apiCall = MoviesApplication.get(parentActivity as MainActivity).appComponent?.apiCall
+        val movieRepository = MovieRepository(CompositeDisposable(), apiCall!!)
+
+        mMoviePresenter = MoviePresenter(this, movieRepository)
     }
 
-    fun displayMovies(movies: List<Movie>) {
+    override fun displayMovies(movies: List<Movie>) {
         mMovieAdapter?.updateList(movies)
     }
 
     override fun onItemClicked(movie: Movie) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

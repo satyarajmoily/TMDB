@@ -5,7 +5,7 @@ import com.satyaraj.app.tmdb.pojo.Movie
 interface MovieContract {
 
     interface View {
-        fun displayMovies(stories: List<Movie>)
+        fun displayMovies(movies: List<Movie>)
     }
 
     interface Action {
