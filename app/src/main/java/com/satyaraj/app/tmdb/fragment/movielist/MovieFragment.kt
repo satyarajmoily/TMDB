@@ -39,6 +39,7 @@ class MovieFragment : BaseFragment<MainActivity>(), ClickListener, MovieContract
     }
 
     private fun initViews(view: View) {
+        //These method can be replaced by data binding or butterKnife
         val mRecyclerView: RecyclerView = view.findViewById(R.id.recycler_view)
 
         mProgressBar = view.findViewById(R.id.progress_circular)
@@ -50,6 +51,7 @@ class MovieFragment : BaseFragment<MainActivity>(), ClickListener, MovieContract
         mMovieAdapter = MovieAdapter(this)
         mRecyclerView.adapter = mMovieAdapter
 
+        //We can avoid creating new options by using dagger
         val apiCall = MoviesApplication[parentActivity as MainActivity].appComponent?.apiCall
         val movieRepository = MovieRepository(CompositeDisposable(), apiCall!!)
 

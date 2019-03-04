@@ -58,6 +58,7 @@ class DetailsFragment : BaseFragment<MainActivity>(), DetailsContract.View{
     }
 
     private fun initViews(view: View) {
+        //These method can be replaced by data binding or butterKnife
         poster = view.findViewById(R.id.movie_poster)
         description = view.findViewById(R.id.movie_desc)
         duration = view.findViewById(R.id.duration)
@@ -72,6 +73,7 @@ class DetailsFragment : BaseFragment<MainActivity>(), DetailsContract.View{
         layout?.visibility = View.GONE
 
         val apiCall = MoviesApplication[parentActivity as MainActivity].appComponent?.apiCall
+        //We can avoid creating new options by using dagger
         val detailsRepository = DetailsRepository(CompositeDisposable(), apiCall!!)
         detailsPresenter = DetailsPresenter(this, detailsRepository)
     }

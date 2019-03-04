@@ -16,6 +16,7 @@ class MoviesApplication : Application() {
     }
 
     private fun initializeComponents() {
+        //applicationModule  is deprecated since no object is been injected yet
         appComponent = DaggerAppComponent
             .builder()
             .applicationModule(ApplicationModule(this))
