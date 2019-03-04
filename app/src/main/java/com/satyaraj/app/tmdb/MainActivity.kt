@@ -17,7 +17,7 @@ class MainActivity :  BaseActivity() {
         }
     }
 
-    private fun switchFragment(fragment: Fragment, shouldPop: Boolean) {
+    fun switchFragment(fragment: Fragment, shouldPop: Boolean) {
         FragmentTransactionManager.addFragment(supportFragmentManager, fragment, shouldPop, R.id.container)
     }
 }

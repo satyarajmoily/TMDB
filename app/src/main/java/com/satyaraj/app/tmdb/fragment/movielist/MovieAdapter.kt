@@ -17,6 +17,10 @@ class MovieAdapter(movieFragment: MovieFragment) : RecyclerView.Adapter<Recycler
 
     private val mMoviesList = ArrayList<Movie>(0)
 
+    companion object {
+        const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
+    }
+
     private val mClickListener: ClickListener
     private val mContext: Context
 
@@ -74,9 +78,11 @@ class MovieAdapter(movieFragment: MovieFragment) : RecyclerView.Adapter<Recycler
             movieDate.text = mMovie.movieDate
             movieLanguage.text = mMovie.movieLang
 
+            val imageUrl = IMAGE_BASE_URL + movie.url
+
             Glide.with(mContext)
-                .load(movie.url)
-                .placeholder(R.drawable.abc_ab_share_pack_mtrl_alpha)
+                .load(imageUrl)
+                .placeholder(R.drawable.ic_tmdb)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(poster)
         }
