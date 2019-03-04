@@ -1,4 +1,4 @@
-package com.satyaraj.app.tmdb
+package com.satyaraj.app.tmdb.MethodUtils
 
 class Constants {
     companion object {

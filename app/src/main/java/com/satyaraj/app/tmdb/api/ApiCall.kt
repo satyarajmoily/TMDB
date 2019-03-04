@@ -1,4 +1,4 @@
-package com.satyaraj.app.tmdb
+package com.satyaraj.app.tmdb.api
 
 import com.satyaraj.app.tmdb.pojo.ListOfMovies
 import com.satyaraj.app.tmdb.pojo.Movie

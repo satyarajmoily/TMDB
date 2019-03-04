@@ -64,6 +64,8 @@ class MovieFragment : BaseFragment<MainActivity>(), ClickListener, MovieContract
     }
 
     override fun onItemClicked(movie: Movie) {
-        parentActivity?.switchFragment(DetailsFragment.getNewInstance(movie.id.toString()), false)
+        parentActivity?.switchFragment(
+            DetailsFragment.getNewInstance(movie.id.toString()),
+            false)
     }
 }

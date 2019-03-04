@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.satyaraj.app.tmdb.BuildConfig
-import com.satyaraj.app.tmdb.ApiCall
+import com.satyaraj.app.tmdb.api.ApiCall
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

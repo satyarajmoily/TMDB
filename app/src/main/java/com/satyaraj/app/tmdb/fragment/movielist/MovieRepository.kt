@@ -1,11 +1,10 @@
 package com.satyaraj.app.tmdb.fragment.movielist
 
 import android.util.Log
-import com.satyaraj.app.tmdb.ApiCall
+import com.satyaraj.app.tmdb.api.ApiCall
 import com.satyaraj.app.tmdb.base.BaseRepository
-import com.satyaraj.app.tmdb.Constants
+import com.satyaraj.app.tmdb.MethodUtils.Constants
 import com.satyaraj.app.tmdb.pojo.ListOfMovies
-import com.satyaraj.app.tmdb.pojo.Movie
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver

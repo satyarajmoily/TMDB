@@ -2,7 +2,6 @@ package com.satyaraj.app.tmdb.application
 
 import android.app.Activity
 import android.app.Application
-import com.satyaraj.app.tmdb.ApiCall
 import com.satyaraj.app.tmdb.application.di.AppComponent
 import com.satyaraj.app.tmdb.application.di.ApplicationModule
 import com.satyaraj.app.tmdb.application.di.DaggerAppComponent
