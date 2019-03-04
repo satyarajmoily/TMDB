@@ -6,6 +6,7 @@ import com.satyaraj.app.tmdb.application.di.AppComponent
 import com.satyaraj.app.tmdb.application.di.ApplicationModule
 import com.satyaraj.app.tmdb.application.di.DaggerAppComponent
 
+@Suppress("DEPRECATION")
 class MoviesApplication : Application() {
     var appComponent: AppComponent? = null
 
@@ -15,7 +16,7 @@ class MoviesApplication : Application() {
     }
 
     private fun initializeComponents() {
-        //applicationModule  is deprecated since no object is been injected yet
+        //applicationModule is deprecated since no object is been injected yet
         appComponent = DaggerAppComponent
             .builder()
             .applicationModule(ApplicationModule(this))
@@ -26,5 +27,6 @@ class MoviesApplication : Application() {
         operator fun get(activity: Activity): MoviesApplication {
             return activity.application as MoviesApplication
         }
+
     }
 }
